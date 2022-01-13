@@ -12,4 +12,4 @@ pip install -r requirements.txt
 ------------------------
 
 #### How to use:
-to run the flask API server run ```driver.py```
+to run the flask API server run ```driver.py --method=flask```
