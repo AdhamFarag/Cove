@@ -1,5 +1,6 @@
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+from sqlalchemy import true
 stemmer = LancasterStemmer()
 # things we need for Tensorflow
 import numpy as np
@@ -10,7 +11,7 @@ import tflearn
 import pickle
 
 #training_data_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'training_data')
-training_data_file_path = "training_data"
+training_data_file_path = "Training Material\\training_data"
 data = pickle.load( open(training_data_file_path, "rb" ) )
 words = data['words']
 classes = data['classes']
@@ -33,7 +34,7 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net, tensorboard_dir='./tflearn_logs')
 
 # load our saved model
-model.load('./model.tflearn')
+model.load('./models/model.tflearn')
 
 def clean_up_sentence(sentence):
     # tokenize the pattern
@@ -55,9 +56,10 @@ def bow(sentence, words):
     return(np.array(bag))
 
 
-def response(sentence):
+def response(sentence,Detailed=False):
     '''
     takes in sentece as input and return back response from the bot based on the data
+    or returns the pattern and the data for future enhancments that might need to use existing patterns
     '''
     results = model.predict([bow(sentence, words)])[0]
     results_index = np.argmax(results)
@@ -66,5 +68,11 @@ def response(sentence):
         if tg['tag'] == tag:
             responses = tg['responses']
             patterns = tg["patterns"]
-    return(random.choice(responses))
+    if (Detailed):
+        return(random.choice(responses),patterns)
+    else:
+        return(random.choice(responses))
 
+
+
+print(response("hello"))

@@ -9,10 +9,10 @@ value = args.method
 
 if value == 'flask':
     # only import the necessary files if we choose to start server
-    from FlaskApi import start_server
+    from methods.FlaskApi import start_server
     start_server()
 elif value== 'GUI':
-    from GUI import App
+    from methods.GUI import App
     root = tkinter.Tk()
     root.configure(background="black")
     app = App(root,'emotions\\AI_idle.gif')

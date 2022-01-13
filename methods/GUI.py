@@ -3,7 +3,7 @@ import tkinter
 from PIL import Image, ImageTk, ImageSequence
 import threading
 from tkinter.tix import IMAGETEXT
-from actualbot import response
+from methods.actualbot import response
 import speech_recognition as sr
 
 def get_audio():
@@ -30,7 +30,6 @@ class App(threading.Thread):
     this class is used to prove the window to animate the AI character based on emotions
     if response occurs -> idle emotion is displayed in GUI window
     if exception occurs -> mad emotion is displayed in GUI window
-
     '''
     def __init__(self, parent,img):
         self.parent = parent

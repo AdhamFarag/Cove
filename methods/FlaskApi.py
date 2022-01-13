@@ -1,7 +1,7 @@
 from flask import Flask,render_template
 from sklearn.metrics import coverage_error
 import json
-from actualbot import response
+from methods.actualbot import response
 app = Flask(__name__)
 
 
