@@ -12,7 +12,7 @@ if value == 'flask':
     from methods.FlaskApi import start_server
     start_server()
 
-elif value== 'GUI':
+elif value == 'GUI':
     import tkinter
     from methods.GUI import App
     root = tkinter.Tk()
@@ -20,6 +20,6 @@ elif value== 'GUI':
     app = App(root,'emotions\\AI_idle.gif')
     root.mainloop()
 
-elif value== 'WebGUI':
+elif value == 'WebGUI':
     from methods.WebGUI import start_server
     start_server()
