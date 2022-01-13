@@ -1,31 +1,12 @@
-from flask import Flask,render_template
-from sklearn.metrics import coverage_error
-import json
-from actualbot import response
-app = Flask(__name__)
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--method", choices=["flask"],required=True,default=1, type=str,help="This is how you choose to run the bot")
 
-@app.route("/<text>")
-def MainResponse(text):
-    text = text.lower()
-    coveResponse = response(text)
-    print(text)
-    if(coveResponse == None):
-        coveResponse = "I don't think I am Programmed to do that, would you like me to make a note of that"
-    elif("alpha" in text.lower()):
-        # TODO: Handle exit of code here using alpha as a failsafe word
-        pass
-    returnedJSON = app.response_class(
-        response=json.dumps({"status":"success","code":0,"data":coveResponse}),
-        status=200,
-        mimetype='application/json'
-    )
-    return returnedJSON
+args = parser.parse_args()
+value = args.method
 
-
-
-def start_server():
-    app.run()
-
-if __name__ == '__main__':
+if value == 'flask':
+    # only import the necessary files if we choose to start server
+    from FlaskApi import start_server
     start_server()
