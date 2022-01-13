@@ -127,3 +127,14 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom ignored files
+
+tflearn_logs/
+bots/__pycache__
+__pycache__
+*.pyc
+debug.log
+checkpoint
+User Data/
+secrets.py
