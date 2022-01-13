@@ -1,5 +1,5 @@
 from flask import Flask,render_template
-from actualbot import response
+from methods.actualbot import response
 
 app = Flask(__name__)
 
@@ -27,6 +27,3 @@ def Main(text):
 
 def start_server():
     app.run()
-
-if __name__ == '__main__':
-    start_server()
