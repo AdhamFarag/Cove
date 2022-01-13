@@ -13,6 +13,6 @@ pip install -r requirements.txt
 ------------------------
 
 #### How to use:
-To run the flask API server run ```driver.py --method=flask```
-To run a GUI for the bot and use speech reognition run ```driver.py --method=GUI```
+- To run the flask API server run ```driver.py --method=flask```
+- To run a GUI for the bot and use speech reognition run ```driver.py --method=GUI```
 
